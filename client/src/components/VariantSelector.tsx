@@ -19,7 +19,7 @@ export default function VariantSelector({
         <button
           key={variant.id}
           onClick={() => onSelectVariant(variant.id)}
-          className={`flex h-[26px] w-[65px] items-center gap-1 rounded-[2px] border-[0.5px] px-[3px] py-[1px] text-xs transition ${
+          className={`flex h-auto w-fit items-center gap-1 rounded-[2px] border-[0.5px] px-[3px] py-[1px] text-xs transition ${
             activeVariantId === variant.id
               ? 'border-[#0AA288] bg-[#1DF0BB0A]'
               : 'border-gray-200 hover:border-gray-300'
@@ -30,12 +30,12 @@ export default function VariantSelector({
             <img
               src={variant.swatchImage}
               alt=""
-              className="h-4 w-4 flex-shrink-0 rounded-full border border-gray-200 object-cover"
+              className="h-[28px] w-[28px] flex-shrink-0 rounded-[5px] object-cover"
             />
           ) : (
             variant.swatch && (
               <div
-                className="h-4 w-4 flex-shrink-0 rounded-full border border-gray-300"
+                className="h-[28px] w-[28px] flex-shrink-0 rounded-[5px]"
                 style={{ backgroundColor: variant.swatch }}
               />
             )
