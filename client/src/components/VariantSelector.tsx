@@ -19,9 +19,9 @@ export default function VariantSelector({
         <button
           key={variant.id}
           onClick={() => onSelectVariant(variant.id)}
-          className={`flex items-center gap-2 rounded px-3 py-1 text-sm transition ${
+          className={`flex items-center gap-2 rounded-full px-3 py-1 text-sm transition ${
             activeVariantId === variant.id
-              ? 'border-2 border-purple-600 bg-purple-50'
+              ? 'border-2 border-purple-01 bg-purple-01-light'
               : 'border border-gray-300 hover:border-gray-400'
           }`}
           title={variant.label}

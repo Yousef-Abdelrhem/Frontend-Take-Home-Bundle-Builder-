@@ -14,7 +14,16 @@ This is a take-home frontend prototype featuring:
 
 ## Running the app
 
-### Option 1: Frontend Only (No Backend)
+### Option 1: Frontend + Backend (One Command) ⚡
+
+```bash
+npm install && npm run install:all
+npm run dev
+```
+
+Both servers start together with labeled output. Backend runs on `http://localhost:3000`, frontend on `http://localhost:5173`.
+
+### Option 2: Frontend Only (No Backend)
 
 ```bash
 cd client
@@ -24,7 +33,7 @@ npm run dev
 
 The frontend will start on `http://localhost:5173` and use the local fallback product catalog.
 
-### Option 2: Frontend + Backend
+### Option 3: Frontend + Backend (Separate Terminals)
 
 **Terminal 1 — Start the backend:**
 

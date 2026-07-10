@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { products as catalogProducts, steps } from './data/catalog';
-import { useBundleStore } from './store/useBundleStore';
-import { fetchProducts } from './api/client';
-import Builder from './components/Builder';
-import ReviewPanel from './components/ReviewPanel';
-import './index.css';
+import { useEffect, useState } from "react";
+import { products as catalogProducts, steps } from "./data/catalog";
+import { useBundleStore } from "./store/useBundleStore";
+import { fetchProducts } from "./api/client";
+import Builder from "./components/Builder";
+import ReviewPanel from "./components/ReviewPanel";
+import "./index.css";
 
 export default function App() {
   const [products, setProducts] = useState(catalogProducts);
@@ -31,7 +31,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white">
       <div className="mx-auto max-w-7xl px-4 py-8">
-        <h1 className="mb-8 text-4xl font-bold text-gray-900">Build Your Security System</h1>
+        <h1 className="mb-8 text-center text-4xl font-bold text-gray-900 lg:text-left">
+          <span className="hidden lg:inline">Build Your Security System</span>
+          <span className="inline lg:hidden">Let's get started!</span>
+        </h1>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_380px]">
           {/* Builder (Left column) */}

@@ -18,7 +18,7 @@ export default function QuantityStepper({
       <button
         onClick={() => onChange(Math.max(min, value - 1))}
         disabled={disabled || value <= min}
-        className="flex h-8 w-8 items-center justify-center rounded border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex h-7 w-7 items-center justify-center rounded-md border border-gray-300 text-gray-500 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50"
       >
         −
       </button>
@@ -26,7 +26,7 @@ export default function QuantityStepper({
       <button
         onClick={() => onChange(Math.min(max, value + 1))}
         disabled={disabled || value >= max}
-        className="flex h-8 w-8 items-center justify-center rounded border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex h-7 w-7 items-center justify-center rounded-md border border-gray-300 text-gray-500 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50"
       >
         +
       </button>

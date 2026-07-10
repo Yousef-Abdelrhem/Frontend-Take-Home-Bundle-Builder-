@@ -1,5 +1,8 @@
 import type { Product } from '../data/catalog';
 import { useBundleStore } from '../store/useBundleStore';
+import ProductImage from './ProductImage';
+import PriceDisplay from './PriceDisplay';
+import Badge from './Badge';
 import QuantityStepper from './QuantityStepper';
 import VariantSelector from './VariantSelector';
 
@@ -13,7 +16,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   const currentVariantId = activeVariantId || product.variants?.[0]?.id;
   const currentQty = bundleStore.getQuantity(product.id, currentVariantId);
 
-  // Compute badge if compareAtPrice is available
   const badgePercent = product.compareAtPrice
     ? Math.round(((product.compareAtPrice - product.price) / product.compareAtPrice) * 100)
     : 0;
@@ -28,38 +30,32 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div
-      className={`rounded-lg border-2 p-4 transition ${
-        currentQty > 0 ? 'border-purple-600 bg-purple-50' : 'border-gray-200 hover:border-gray-300'
+      className={`relative rounded-xl border-2 p-4 transition ${
+        currentQty > 0 ? 'border-purple-01 bg-purple-01-light' : 'border-gray-200 bg-white hover:border-gray-300'
       }`}
     >
-      {/* Badge */}
       {badgePercent > 0 && (
-        <div className="mb-2 inline-block rounded-full bg-purple-600 px-3 py-1 text-sm font-semibold text-white">
+        <Badge variant="solid" className="absolute left-3 top-3">
           Save {badgePercent}%
+        </Badge>
+      )}
+
+      <div className="flex gap-4">
+        <ProductImage src={product.image} alt={product.title} className="h-20 w-20 flex-shrink-0" />
+
+        <div className="min-w-0 flex-1">
+          <h3 className="mb-1 text-base font-semibold text-gray-900">{product.title}</h3>
+          <p className="mb-2 text-sm text-gray-600">{product.description}</p>
+          {product.learnMoreUrl && (
+            <a href={product.learnMoreUrl} className="text-sm text-purple-01 hover:underline">
+              Learn More
+            </a>
+          )}
         </div>
-      )}
+      </div>
 
-      {/* Image */}
-      <img
-        src={product.image}
-        alt={product.title}
-        className="mb-3 h-48 w-full rounded-lg border border-gray-200 object-cover"
-      />
-
-      {/* Title and description */}
-      <h3 className="mb-2 text-lg font-semibold text-gray-900">{product.title}</h3>
-      <p className="mb-3 text-sm text-gray-600">{product.description}</p>
-
-      {/* Learn More link */}
-      {product.learnMoreUrl && (
-        <a href={product.learnMoreUrl} className="text-sm text-purple-600 hover:underline">
-          Learn More
-        </a>
-      )}
-
-      {/* Variants */}
       {product.variants && product.variants.length > 0 && (
-        <div className="my-3">
+        <div className="mt-3">
           <VariantSelector
             variants={product.variants}
             activeVariantId={currentVariantId}
@@ -68,22 +64,14 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       )}
 
-      {/* Quantity stepper */}
-      <div className="my-3">
+      <div className="mt-3 flex items-center justify-between">
         <QuantityStepper value={currentQty} onChange={handleQuantityChange} />
-      </div>
-
-      {/* Pricing */}
-      <div className="flex items-baseline gap-2">
-        {product.compareAtPrice && product.compareAtPrice > product.price && (
-          <span className="text-sm text-gray-500 line-through">
-            ${product.compareAtPrice.toFixed(2)}
-          </span>
-        )}
-        <span className="text-lg font-bold text-gray-900">
-          ${product.price.toFixed(2)}
-        </span>
-        {product.priceUnit && <span className="text-sm text-gray-600">{product.priceUnit}</span>}
+        <PriceDisplay
+          price={product.price}
+          compareAtPrice={product.compareAtPrice}
+          priceUnit={product.priceUnit}
+          align="right"
+        />
       </div>
     </div>
   );

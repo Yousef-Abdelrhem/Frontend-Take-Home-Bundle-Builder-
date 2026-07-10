@@ -1,16 +1,83 @@
 @import "tailwindcss";
 
+/* Gilroy font family — placeholder @font-face rules awaiting real .woff2 files.
+   Drop files into client/public/fonts/ per the filenames below (see README.md there);
+   until then these 404 silently and the system-ui fallback in --font-sans applies. */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-UltraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  /* Colors */
-  --color-primary: #5B4E96;
-  --color-primary-light: #E8E5F5;
-  --color-accent: #E0E6F7;
+  /* Colors — Old/CP-CPP/Purple 01 palette */
+  --color-purple-01: #4E2FD2;
+  --color-purple-01-light: #F1EEFC;
+  --color-lavender: #EDF4FF;
   --color-success: #10B981;
   --color-warning: #F59E0B;
   --color-error: #EF4444;
 
   /* Typography */
-  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-sans: 'Gilroy', system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, monospace;
 }
 
