@@ -209,3 +209,4 @@ The app is fully functional end-to-end:
 ---
 
 Built as a frontend take-home prototype. Focus: production-quality UI, state management, data-driven rendering, and a clean bonus backend.
+# Frontend-Take-Home-Bundle-Builder-
