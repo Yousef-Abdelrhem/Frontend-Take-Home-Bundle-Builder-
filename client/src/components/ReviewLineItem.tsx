@@ -27,7 +27,14 @@ export default function ReviewLineItem({
       </div>
       <div className="flex items-center gap-3">
         <QuantityStepper value={quantity} onChange={onQuantityChange} />
-        <PriceDisplay price={total} compareAtPrice={compareAtTotal} freeLabel align="right" size="sm" />
+        <PriceDisplay
+          price={total}
+          compareAtPrice={compareAtTotal}
+          freeLabel
+          align="right"
+          size="sm"
+          priceColor="text-purple-01"
+        />
       </div>
     </div>
   );

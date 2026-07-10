@@ -1,10 +1,10 @@
-import type { Product } from '../data/catalog';
-import { useBundleStore } from '../store/useBundleStore';
-import ProductImage from './ProductImage';
-import PriceDisplay from './PriceDisplay';
-import Badge from './Badge';
-import QuantityStepper from './QuantityStepper';
-import VariantSelector from './VariantSelector';
+import type { Product } from "../data/catalog";
+import { useBundleStore } from "../store/useBundleStore";
+import ProductImage from "./ProductImage";
+import PriceDisplay from "./PriceDisplay";
+import Badge from "./Badge";
+import QuantityStepper from "./QuantityStepper";
+import VariantSelector from "./VariantSelector";
 
 interface ProductCardProps {
   product: Product;
@@ -17,7 +17,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   const currentQty = bundleStore.getQuantity(product.id, currentVariantId);
 
   const badgePercent = product.compareAtPrice
-    ? Math.round(((product.compareAtPrice - product.price) / product.compareAtPrice) * 100)
+    ? Math.round(
+        ((product.compareAtPrice - product.price) / product.compareAtPrice) *
+          100,
+      )
     : 0;
 
   const handleVariantChange = (variantId: string) => {
@@ -31,7 +34,9 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div
       className={`relative rounded-xl border-2 p-4 transition ${
-        currentQty > 0 ? 'border-purple-01 bg-purple-01-light' : 'border-gray-200 bg-white hover:border-gray-300'
+        currentQty > 0
+          ? "border-purple-01 bg-purple-01-light"
+          : "border-gray-200 bg-white hover:border-gray-300"
       }`}
     >
       {badgePercent > 0 && (
@@ -40,38 +45,50 @@ export default function ProductCard({ product }: ProductCardProps) {
         </Badge>
       )}
 
-      <div className="flex gap-4">
-        <ProductImage src={product.image} alt={product.title} className="h-20 w-20 flex-shrink-0" />
+      <div className="flex gap-4 ">
+        <ProductImage
+          src={product.image}
+          alt={product.title}
+          className="h-auto w-24 flex-shrink-0 self-stretch"
+        />
 
-        <div className="min-w-0 flex-1">
-          <h3 className="mb-1 text-base font-semibold text-gray-900">{product.title}</h3>
+        <div className="flex min-w-0 flex-1 flex-col">
+          <h3 className="mb-1 text-base font-semibold text-gray-900">
+            {product.title}
+          </h3>
           <p className="mb-2 text-sm text-gray-600">{product.description}</p>
           {product.learnMoreUrl && (
-            <a href={product.learnMoreUrl} className="text-sm text-purple-01 hover:underline">
+            <a
+              href={product.learnMoreUrl}
+              className="text-sm text-[##0000EE] underline"
+            >
               Learn More
             </a>
           )}
-        </div>
-      </div>
 
-      {product.variants && product.variants.length > 0 && (
-        <div className="mt-3">
-          <VariantSelector
-            variants={product.variants}
-            activeVariantId={currentVariantId}
-            onSelectVariant={handleVariantChange}
-          />
-        </div>
-      )}
+          {product.variants && product.variants.length > 0 && (
+            <div className="mt-3">
+              <VariantSelector
+                variants={product.variants}
+                activeVariantId={currentVariantId}
+                onSelectVariant={handleVariantChange}
+              />
+            </div>
+          )}
 
-      <div className="mt-3 flex items-center justify-between">
-        <QuantityStepper value={currentQty} onChange={handleQuantityChange} />
-        <PriceDisplay
-          price={product.price}
-          compareAtPrice={product.compareAtPrice}
-          priceUnit={product.priceUnit}
-          align="right"
-        />
+          <div className="mt-auto flex items-center justify-between pt-3">
+            <QuantityStepper
+              value={currentQty}
+              onChange={handleQuantityChange}
+            />
+            <PriceDisplay
+              price={product.price}
+              compareAtPrice={product.compareAtPrice}
+              priceUnit={product.priceUnit}
+              align="right"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

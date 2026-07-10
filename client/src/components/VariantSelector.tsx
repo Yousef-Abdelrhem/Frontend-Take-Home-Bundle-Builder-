@@ -19,20 +19,28 @@ export default function VariantSelector({
         <button
           key={variant.id}
           onClick={() => onSelectVariant(variant.id)}
-          className={`flex items-center gap-2 rounded-full px-3 py-1 text-sm transition ${
+          className={`flex h-[26px] w-[65px] items-center gap-1 rounded-[2px] border-[0.5px] px-[3px] py-[1px] text-xs transition ${
             activeVariantId === variant.id
-              ? 'border-2 border-purple-01 bg-purple-01-light'
-              : 'border border-gray-300 hover:border-gray-400'
+              ? 'border-[#0AA288] bg-[#1DF0BB0A]'
+              : 'border-gray-200 hover:border-gray-300'
           }`}
           title={variant.label}
         >
-          {variant.swatch && (
-            <div
-              className="h-4 w-4 rounded-full border border-gray-300"
-              style={{ backgroundColor: variant.swatch }}
+          {variant.swatchImage ? (
+            <img
+              src={variant.swatchImage}
+              alt=""
+              className="h-4 w-4 flex-shrink-0 rounded-full border border-gray-200 object-cover"
             />
+          ) : (
+            variant.swatch && (
+              <div
+                className="h-4 w-4 flex-shrink-0 rounded-full border border-gray-300"
+                style={{ backgroundColor: variant.swatch }}
+              />
+            )
           )}
-          <span>{variant.label}</span>
+          <span className="truncate">{variant.label}</span>
         </button>
       ))}
     </div>

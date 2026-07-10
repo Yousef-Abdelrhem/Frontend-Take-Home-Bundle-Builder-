@@ -3,16 +3,17 @@
     "id": "wyze-cam-v4",
     "stepId": "cameras",
     "title": "Wyze Cam v4",
-    "description": "The cheapest Wyze Cam ever made. Night vision, motion detection & alerts.",
+    "description": "The clearest Wyze Cam ever made.",
     "learnMoreUrl": "#",
-    "compareAtPrice": 33.08,
-    "price": 27.99,
-    "image": "https://via.placeholder.com/200x200?text=Wyze+Cam+v4",
+    "compareAtPrice": 35.98,
+    "price": 27.98,
+    "image": "/products/wyze-cam-v4.png",
     "category": "Cameras",
     "seededQty": 1,
     "variants": [
-      { "id": "white", "label": "White", "swatch": "#FFFFFF" },
-      { "id": "black", "label": "Black", "swatch": "#000000" }
+      { "id": "white", "label": "White", "swatch": "#FFFFFF", "swatchImage": "/products/wyze-cam-v4-white.png" },
+      { "id": "grey", "label": "Grey", "swatch": "#8E8E93", "swatchImage": "/products/wyze-cam-v4-gray.png" },
+      { "id": "black", "label": "Black", "swatch": "#000000", "swatchImage": "/products/wyze-cam-v4-black.png" }
     ]
   },
   {
