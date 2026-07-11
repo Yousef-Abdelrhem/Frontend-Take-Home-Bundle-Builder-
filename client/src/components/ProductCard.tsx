@@ -46,11 +46,13 @@ export default function ProductCard({ product }: ProductCardProps) {
       )}
 
       <div className="flex gap-4 ">
-        <ProductImage
-          src={product.image}
-          alt={product.title}
-          className="h-auto w-24 flex-shrink-0 self-stretch"
-        />
+        <div className="flex flex-shrink-0 items-center justify-center">
+          <ProductImage
+            src={product.image}
+            alt={product.title}
+            className="h-[137px] w-[101px] rounded-[5px]"
+          />
+        </div>
 
         <div className="flex min-w-0 flex-1 flex-col">
           <h3 className="mb-1 text-base font-semibold text-gray-900">
