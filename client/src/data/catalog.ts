@@ -59,14 +59,14 @@ export const products: Product[] = [
     title: 'Wyze Cam Pan v3',
     description: '360° pan and 180° tilt security camera.',
     learnMoreUrl: '#',
-    compareAtPrice: 34.98,
+    compareAtPrice: 39.98,
     price: 34.98,
-    image: 'https://via.placeholder.com/200x200?text=Wyze+Pan+v3',
+    image: '/products/wyze-cam-pan-v3.png',
     category: 'Cameras',
     seededQty: 2,
     variants: [
-      { id: 'white', label: 'White', swatch: '#FFFFFF' },
-      { id: 'black', label: 'Black', swatch: '#000000' },
+      { id: 'white', label: 'White', swatch: '#FFFFFF', swatchImage: '/products/wyze-cam-pan-v3-white.png' },
+      { id: 'black', label: 'Black', swatch: '#000000', swatchImage: '/products/wyze-cam-pan-v3-black.png' },
     ],
   },
   {

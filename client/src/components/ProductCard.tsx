@@ -35,7 +35,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <div
       className={`relative rounded-xl border-2 p-4 transition ${
         currentQty > 0
-          ? "border-purple-01 bg-purple-01-light"
+          ? "border-purple-01 bg-white"
           : "border-gray-200 bg-white hover:border-gray-300"
       }`}
     >

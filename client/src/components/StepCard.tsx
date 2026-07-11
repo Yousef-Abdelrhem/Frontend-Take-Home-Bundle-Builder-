@@ -23,7 +23,7 @@ export default function StepCard({
 }: StepCardProps) {
   const bundleStore = useBundleStore();
   const stepProducts = products.filter((p) => p.stepId === step.id);
-  const selectedCount = bundleStore.getSelectedProductIds(step.id).length;
+  const selectedCount = bundleStore.getSelectedProductIds(stepProducts.map((p) => p.id)).length;
 
   return (
     <div>

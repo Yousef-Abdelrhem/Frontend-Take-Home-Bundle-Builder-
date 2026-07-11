@@ -20,7 +20,7 @@ export interface BundleStore extends BundleState {
   setActiveVariant: (productId: string, variantId: string) => void;
   setExpandedStep: (stepId: 'cameras' | 'plan' | 'sensors' | 'accessories') => void;
   getQuantity: (productId: string, variantId?: string) => number;
-  getSelectedProductIds: (stepId: string) => string[];
+  getSelectedProductIds: (productIds: string[]) => string[];
   reset: () => void;
 }
 
@@ -66,14 +66,17 @@ export const useBundleStore = create<BundleStore>()(
         return state.quantities[key] || 0;
       },
 
-      getSelectedProductIds: () => {
+      getSelectedProductIds: (productIds) => {
         const state = get();
+        const idSet = new Set(productIds);
         const selectedProducts = new Set<string>();
 
         Object.entries(state.quantities).forEach(([key, qty]) => {
           if (qty > 0) {
             const [productId] = key.split(':');
-            selectedProducts.add(productId);
+            if (idSet.has(productId)) {
+              selectedProducts.add(productId);
+            }
           }
         });
 

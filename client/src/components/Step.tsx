@@ -34,5 +34,5 @@ export default function Step({
     );
   }
 
-  return <StepRow step={step} onToggle={onToggle} />;
+  return <StepRow step={step} products={products} onToggle={onToggle} />;
 }

@@ -1,15 +1,17 @@
-import type { Step as StepType } from '../data/catalog';
+import type { Product, Step as StepType } from '../data/catalog';
 import { useBundleStore } from '../store/useBundleStore';
 import StepLabel from './StepLabel';
 
 interface StepRowProps {
   step: StepType;
+  products: Product[];
   onToggle: () => void;
 }
 
-export default function StepRow({ step, onToggle }: StepRowProps) {
+export default function StepRow({ step, products, onToggle }: StepRowProps) {
   const bundleStore = useBundleStore();
-  const selectedCount = bundleStore.getSelectedProductIds(step.id).length;
+  const stepProducts = products.filter((p) => p.stepId === step.id);
+  const selectedCount = bundleStore.getSelectedProductIds(stepProducts.map((p) => p.id)).length;
 
   return (
     <button
