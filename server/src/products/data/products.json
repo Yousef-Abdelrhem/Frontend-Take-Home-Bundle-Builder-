@@ -51,25 +51,24 @@
     "id": "wyze-duo-cam-doorbell",
     "stepId": "cameras",
     "title": "Wyze Duo Cam Doorbell",
-    "description": "Two cameras. Two views. Double the protection.",
+    "description": "Two cameras. Two views. Double the porch protection.",
     "learnMoreUrl": "#",
-    "compareAtPrice": 69.98,
     "price": 69.98,
-    "image": "https://via.placeholder.com/200x200?text=Duo+Doorbell",
+    "image": "/products/wyze-duo-cam-doorbell.png",
     "category": "Cameras"
   },
   {
     "id": "wyze-battery-cam-pro",
     "stepId": "cameras",
     "title": "Wyze Battery Cam Pro",
-    "description": "Protect anywhere. See everything in 2.3K HDR. No power outlet needed.",
+    "description": "Protect anywhere. See everything in 2.5K HDR. No power outlet or electrician needed.",
     "learnMoreUrl": "#",
-    "price": 69.98,
-    "image": "https://via.placeholder.com/200x200?text=Battery+Cam+Pro",
+    "price": 89.98,
+    "image": "/products/wyze-battery-cam-pro.png",
     "category": "Cameras",
     "variants": [
-      { "id": "white", "label": "White", "swatch": "#FFFFFF" },
-      { "id": "black", "label": "Black", "swatch": "#000000" }
+      { "id": "white", "label": "White", "swatch": "#FFFFFF", "swatchImage": "/products/wyze-battery-cam-pro-white.png" },
+      { "id": "black", "label": "Black", "swatch": "#000000", "swatchImage": "/products/wyze-battery-cam-pro-black.png" }
     ]
   },
   {
