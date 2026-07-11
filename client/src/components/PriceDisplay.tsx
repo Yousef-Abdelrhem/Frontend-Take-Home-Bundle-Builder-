@@ -33,10 +33,14 @@ export default function PriceDisplay({
           ${compareAtPrice!.toFixed(2)}
         </span>
       )}
-      <span className={`font-bold tracking-[0.6px] leading-none ${priceColor} text-md font-normal`}>
-        {freeLabel && price === 0 ? 'FREE' : `$${price.toFixed(2)}`}
-        {priceUnit && !freeLabel && <span className="ml-0.5 text-xs font-normal text-gray-500">{priceUnit}</span>}
-      </span>
+      {freeLabel && price === 0 ? (
+        <span className="font-bold tracking-[0.6px] leading-none text-purple-01 text-md">FREE</span>
+      ) : (
+        <span className={`font-bold tracking-[0.6px] leading-none ${priceColor} text-md`}>
+          ${price.toFixed(2)}
+          {priceUnit && <span className="ml-0.5 text-xs font-normal text-gray-500">{priceUnit}</span>}
+        </span>
+      )}
     </div>
   );
 }

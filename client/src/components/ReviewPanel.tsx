@@ -1,9 +1,11 @@
-import type { Product } from '../data/catalog';
-import { useBundleStore } from '../store/useBundleStore';
-import ReviewSection from './ReviewSection';
-import TotalSummary from './TotalSummary';
-import PriceDisplay from './PriceDisplay';
-import { useState } from 'react';
+import type { Product } from "../data/catalog";
+import { useBundleStore } from "../store/useBundleStore";
+import ReviewSection from "./ReviewSection";
+import TotalSummary from "./TotalSummary";
+import PriceDisplay from "./PriceDisplay";
+import { useState } from "react";
+import camUnlimitedIcon from "../assets/icons/cam-unlimited-icon.png";
+import fastShippingIcon from "../assets/icons/fast-shipping-icon.png";
 
 interface ReviewPanelProps {
   products: Product[];
@@ -24,12 +26,12 @@ export default function ReviewPanel({ products }: ReviewPanelProps) {
   const lineItems: LineItem[] = [];
   Object.entries(bundleStore.quantities).forEach(([key, qty]) => {
     if (qty > 0) {
-      const [productId, variantId] = key.split(':');
+      const [productId, variantId] = key.split(":");
       const product = products.find((p) => p.id === productId);
       if (product) {
         lineItems.push({
           productId,
-          variantId: variantId === 'default' ? undefined : variantId,
+          variantId: variantId === "default" ? undefined : variantId,
           product,
           quantity: qty,
           total: product.price * qty,
@@ -39,11 +41,13 @@ export default function ReviewPanel({ products }: ReviewPanelProps) {
   });
 
   const categories = {
-    Cameras: lineItems.filter((item) => item.product.category === 'Cameras'),
-    Sensors: lineItems.filter((item) => item.product.category === 'Sensors'),
-    Accessories: lineItems.filter((item) => item.product.category === 'Accessories'),
+    Cameras: lineItems.filter((item) => item.product.category === "Cameras"),
+    Sensors: lineItems.filter((item) => item.product.category === "Sensors"),
+    Accessories: lineItems.filter(
+      (item) => item.product.category === "Accessories",
+    ),
   };
-  const planItem = lineItems.find((item) => item.product.category === 'Plan');
+  const planItem = lineItems.find((item) => item.product.category === "Plan");
 
   const subtotal = lineItems.reduce((sum, item) => sum + item.total, 0);
   const preDiscountTotal = lineItems.reduce((sum, item) => {
@@ -59,7 +63,7 @@ export default function ReviewPanel({ products }: ReviewPanelProps) {
   const handleQuantityChange = (
     productId: string,
     variantId: string | undefined,
-    qty: number
+    qty: number,
   ) => {
     bundleStore.setQuantity(productId, variantId, qty);
   };
@@ -70,27 +74,48 @@ export default function ReviewPanel({ products }: ReviewPanelProps) {
   };
 
   const handleCheckout = () => {
-    alert('Checkout not implemented in this prototype. In a real app, you would proceed to payment here.');
+    alert(
+      "Checkout not implemented in this prototype. In a real app, you would proceed to payment here.",
+    );
   };
 
   return (
-    <div className="sticky top-4 rounded-2xl bg-lavender p-4">
-      <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">Review</p>
-      <h2 className="mb-2 text-2xl font-bold text-gray-900">Your security system</h2>
+    <div className="sticky top-[15px] rounded-[10px] bg-lavender pt-5 pr-5 pb-[31px] pl-5">
+      <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+        Review
+      </p>
+      <h2 className="mb-2 text-2xl font-bold text-gray-900">
+        Your security system
+      </h2>
       <p className="mb-2 text-sm text-gray-600">
-        Review your personalized protection system designed to keep what matters most safe.
+        Review your personalized protection system designed to keep what matters
+        most safe.
       </p>
 
-      <ReviewSection title="Cameras" items={categories.Cameras} onQuantityChange={handleQuantityChange} />
-      <ReviewSection title="Sensors" items={categories.Sensors} onQuantityChange={handleQuantityChange} />
-      <ReviewSection title="Accessories" items={categories.Accessories} onQuantityChange={handleQuantityChange} />
+      <ReviewSection
+        title="Cameras"
+        items={categories.Cameras}
+        onQuantityChange={handleQuantityChange}
+      />
+      <ReviewSection
+        title="Sensors"
+        items={categories.Sensors}
+        onQuantityChange={handleQuantityChange}
+      />
+      <ReviewSection
+        title="Accessories"
+        items={categories.Accessories}
+        onQuantityChange={handleQuantityChange}
+      />
 
       {planItem && (
-        <div className="border-t border-gray-300 py-3">
-          <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">Plan</h3>
+        <div className="border-t border-gray-200 py-3">
+          <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+            Plan
+          </h3>
           <div className="flex items-center justify-between gap-2 py-2">
             <div className="flex items-center gap-2">
-              <span className="text-xl">📶</span>
+              <img src={camUnlimitedIcon} alt="" className="h-6 w-6" />
               <p className="text-sm font-semibold text-gray-900">
                 Cam <span className="text-purple-01">Unlimited</span>
               </p>
@@ -106,15 +131,27 @@ export default function ReviewPanel({ products }: ReviewPanelProps) {
         </div>
       )}
 
-      <div className="flex items-center justify-between gap-2 border-t border-gray-300 py-3">
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <span className="text-xl">🚚</span>
+      <div className="flex items-center justify-between gap-2 border-t border-gray-200 py-3">
+        <div className="flex items-center gap-2 text-sm text-gray-600 ">
+          <div className="flex items-center justify-center bg-white rounded-[7px] px-2 py-1">
+            <img src={fastShippingIcon} alt="" className="h-6 w-6 " />
+          </div>
           Fast Shipping
         </div>
-        <PriceDisplay price={shipping} compareAtPrice={shippingListPrice} freeLabel align="right" size="sm" />
+        <PriceDisplay
+          price={shipping}
+          compareAtPrice={shippingListPrice}
+          freeLabel
+          align="right"
+          size="sm"
+        />
       </div>
 
-      <TotalSummary total={total} preDiscountTotal={preDiscountGrandTotal} savings={savings} />
+      <TotalSummary
+        total={total}
+        preDiscountTotal={preDiscountGrandTotal}
+        savings={savings}
+      />
 
       <button
         onClick={handleCheckout}
@@ -125,7 +162,7 @@ export default function ReviewPanel({ products }: ReviewPanelProps) {
 
       <button
         onClick={handleSaveSystem}
-        className="w-full text-center text-sm text-gray-600 underline hover:text-gray-900"
+        className="w-full text-center text-sm italic text-gray-600 underline hover:text-gray-900"
       >
         Save my system for later
       </button>

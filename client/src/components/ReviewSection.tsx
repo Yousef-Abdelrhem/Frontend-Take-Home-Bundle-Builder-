@@ -19,7 +19,7 @@ export default function ReviewSection({ title, items, onQuantityChange }: Review
   if (items.length === 0) return null;
 
   return (
-    <div className="border-t border-gray-300 py-3">
+    <div className="border-t border-gray-200 py-3">
       <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">{title}</h3>
       <div className="divide-y divide-gray-100">
         {items.map((item) => (

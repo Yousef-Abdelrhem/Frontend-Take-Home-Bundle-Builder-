@@ -1,7 +1,7 @@
 import type { Product, Step as StepType } from "../data/catalog";
 import { useBundleStore } from "../store/useBundleStore";
 import StepLabel from "./StepLabel";
-import camerIcon from "../assets/icons/camerIcon.png";
+import StepIcon from "./StepIcon";
 
 interface StepRowProps {
   step: StepType;
@@ -28,11 +28,7 @@ export default function StepRow({ step, products, onToggle }: StepRowProps) {
           className="flex w-full items-center justify-between text-left"
         >
           <div className="flex items-center gap-3">
-            {step.id === "cameras" ? (
-              <img src={camerIcon} alt="" className="h-8 w-8" />
-            ) : (
-              <span className="text-2xl">{step.icon}</span>
-            )}
+            <StepIcon stepId={step.id} />
             <h2 className="text-[22px] text-gray-900">{step.title}</h2>
           </div>
           <div className="flex items-center gap-2">

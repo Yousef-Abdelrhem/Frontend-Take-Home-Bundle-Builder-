@@ -111,7 +111,7 @@
     "learnMoreUrl": "#",
     "compareAtPrice": 69.98,
     "price": 69.98,
-    "image": "https://via.placeholder.com/200x200?text=Motion+Sensor",
+    "image": "/products/wyze-sense-motion-sensor.png",
     "category": "Sensors",
     "seededQty": 2
   },
@@ -121,8 +121,8 @@
     "title": "Wyze Sense Hub (Required)",
     "description": "Required hub to use Wyze Sense accessories.",
     "compareAtPrice": 29.99,
-    "price": 29.99,
-    "image": "https://via.placeholder.com/200x200?text=Sense+Hub",
+    "price": 0,
+    "image": "/products/wyze-sense-hub.png",
     "category": "Sensors",
     "seededQty": 1
   },
@@ -134,7 +134,7 @@
     "learnMoreUrl": "#",
     "compareAtPrice": 41.96,
     "price": 41.96,
-    "image": "https://via.placeholder.com/200x200?text=MicroSD+256GB",
+    "image": "/products/wyze-microsd-256gb.png",
     "category": "Accessories",
     "seededQty": 2
   },

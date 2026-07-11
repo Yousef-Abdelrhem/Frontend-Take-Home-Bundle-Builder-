@@ -87,6 +87,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               price={product.price}
               compareAtPrice={product.compareAtPrice}
               priceUnit={product.priceUnit}
+              freeLabel
               align="right"
             />
           </div>

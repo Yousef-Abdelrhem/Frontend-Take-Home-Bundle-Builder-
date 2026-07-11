@@ -1,4 +1,5 @@
-import Badge from './Badge';
+import Badge from "./Badge";
+import satisfactionBadge from "../assets/icons/satisfactionBadge.png";
 
 interface TotalSummaryProps {
   total: number;
@@ -6,34 +7,38 @@ interface TotalSummaryProps {
   savings: number;
 }
 
-export default function TotalSummary({ total, preDiscountTotal, savings }: TotalSummaryProps) {
+export default function TotalSummary({
+  total,
+  preDiscountTotal,
+  savings,
+}: TotalSummaryProps) {
   return (
     <div>
-      <div className="mb-3 flex items-center justify-between gap-3 rounded-xl bg-white p-3">
-        <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-purple-01-light text-2xl">
-          🛡️
+      <div className="mb-3 flex items-end justify-between gap-3">
+        <img
+          src={satisfactionBadge}
+          alt="100% Wyze satisfaction guarantee"
+          className="h-[88px] w-[88px] flex-shrink-0"
+        />
+        <div className="flex flex-col items-end">
+          <Badge variant="solid" className="mb-2">
+            as low as ${(total / 12).toFixed(2)}/mo
+          </Badge>
+          <div className="flex gap-2  items-center">
+            {preDiscountTotal > total && (
+              <span className="text-lg text-price-strikethrough line-through">
+                ${preDiscountTotal.toFixed(2)}
+              </span>
+            )}
+            <span className="text-2xl font-bold text-[#4E2FD2]">
+              ${total.toFixed(2)}
+            </span>
+          </div>
         </div>
-        <div className="mr-auto">
-          <p className="text-sm font-semibold text-gray-900">100% Satisfaction Guaranteed</p>
-          <p className="text-xs text-gray-600">
-            If you're not totally in love with the product, we will refund you 100%.
-          </p>
-        </div>
-      </div>
-
-      <div className="mb-2 flex justify-end">
-        <Badge variant="solid">as low as ${(total / 12).toFixed(2)}/mo</Badge>
-      </div>
-
-      <div className="mb-1 flex flex-col items-end">
-        {preDiscountTotal > total && (
-          <span className="text-sm text-gray-400 line-through">${preDiscountTotal.toFixed(2)}</span>
-        )}
-        <span className="text-2xl font-bold text-gray-900">${total.toFixed(2)}</span>
       </div>
 
       {savings > 0 && (
-        <p className="mb-4 text-right text-sm font-semibold text-success">
+        <p className="mt-2 text-[12px]  text-center font-normal tracking-[0.6px] text-success">
           Congrats! You're saving ${savings.toFixed(2)} on your security bundle!
         </p>
       )}
