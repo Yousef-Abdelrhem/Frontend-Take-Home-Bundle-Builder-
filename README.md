@@ -13,7 +13,7 @@ This is a take-home frontend prototype featuring:
 - **Basic CRUD API**: Optional NestJS backend serves products and persists saved systems
 
 ## Running the app
-
+https://github.com/Yousef-Abdelrhem/Frontend-Take-Home-Bundle-Builder-/issues/2#issue-4863045697
 ### Option 1: Frontend + Backend (One Command) ⚡
 
 ```bash
