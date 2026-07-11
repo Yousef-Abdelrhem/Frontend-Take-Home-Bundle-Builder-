@@ -22,14 +22,14 @@ export default function StepRow({ step, products, onToggle }: StepRowProps) {
         <StepLabel order={step.order} borderBottom={false} />
       </div>
 
-      <div className=" flex min-h-[67px] w-full flex-col gap-0 border-t-[0.5px] border-[#1F1F1F] bg-white pt-5 pb-5">
+      <div className=" flex min-h-[var(--size-step-row-min-h)] w-full flex-col gap-0 border-t-[var(--border-hairline)] border-step-divider bg-white pt-5 pb-5">
         <button
           onClick={onToggle}
           className="flex w-full items-center justify-between text-left"
         >
           <div className="flex items-center gap-3">
             <StepIcon stepId={step.id} />
-            <h2 className="text-[22px] text-gray-900">{step.title}</h2>
+            <h2 className="text-step-title text-gray-900">{step.title}</h2>
           </div>
           <div className="flex items-center gap-2">
             {selectedCount > 0 && (

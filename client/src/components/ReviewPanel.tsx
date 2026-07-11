@@ -80,7 +80,7 @@ export default function ReviewPanel({ products }: ReviewPanelProps) {
   };
 
   return (
-    <div className="sticky top-[15px] rounded-[10px] bg-lavender pt-5 pr-5 pb-[31px] pl-5">
+    <div className="sticky top-[var(--space-panel-top-offset)] rounded-panel bg-lavender pt-5 pr-5 pb-[var(--space-panel-bottom-pad)] pl-5">
       <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
         Review
       </p>
@@ -133,7 +133,7 @@ export default function ReviewPanel({ products }: ReviewPanelProps) {
 
       <div className="flex items-center justify-between gap-2 border-t border-gray-200 py-3">
         <div className="flex items-center gap-2 text-sm text-gray-600 ">
-          <div className="flex items-center justify-center bg-white rounded-[7px] px-2 py-1">
+          <div className="flex items-center justify-center bg-white rounded-btn px-2 py-1">
             <img src={fastShippingIcon} alt="" className="h-6 w-6 " />
           </div>
           Fast Shipping

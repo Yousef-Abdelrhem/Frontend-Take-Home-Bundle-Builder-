@@ -29,7 +29,7 @@ export default function Builder({ steps, products }: BuilderProps) {
   };
 
   return (
-    <div className="rounded-[10px]  bg-lavender pt-4 ">
+    <div className="rounded-panel  bg-lavender pt-4 ">
       {steps.map((step, index) => {
         const nextStep = steps[index + 1];
         return (

@@ -36,7 +36,7 @@ export default function App() {
           <span className="inline lg:hidden">Let's get started!</span>
         </h1>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_399px]">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_var(--size-review-panel-w)]">
           {/* Builder (Left column) */}
           <Builder steps={steps} products={products} />
 

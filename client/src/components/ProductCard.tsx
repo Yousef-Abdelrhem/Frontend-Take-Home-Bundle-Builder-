@@ -50,7 +50,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <ProductImage
             src={product.image}
             alt={product.title}
-            className="h-[137px] w-[101px] rounded-[5px]"
+            className="h-[var(--size-product-image-h)] w-[var(--size-product-image-w)] rounded-thumb"
           />
         </div>
 

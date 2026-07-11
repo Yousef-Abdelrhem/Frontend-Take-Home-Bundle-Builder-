@@ -78,9 +78,26 @@
   --color-price-strikethrough: #6F7882;
   --color-price: #575757;
 
+  /* New UI colors */
+  --color-step-divider: #1F1F1F;
+  --color-teal-accent: #0AA288;
+  --color-teal-accent-light: #1DF0BB0A;
+
+  /* Border radius scale */
+  --radius-thumb: 5px;
+  --radius-chip: 2px;
+  --radius-btn: 7px;
+  --radius-panel: 10px;
+
   /* Typography */
   --font-sans: 'Gilroy', system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, monospace;
+
+  /* Font sizes */
+  --text-step-title: 22px;
+
+  /* Letter spacing */
+  --tracking-price: 0.6px;
 }
 
 @layer base {
@@ -99,4 +116,30 @@
   #root {
     @apply min-h-screen flex flex-col;
   }
+}
+
+:root {
+  /* Component dimensions */
+  --size-product-image-w: 101px;
+  --size-product-image-h: 137px;
+  --size-swatch: 28px;
+  --size-badge: 88px;
+  --size-cta-btn-h: 39px;
+  --size-review-panel-w: 399px;
+  --size-step-row-min-h: 67px;
+
+  /* Spacing */
+  --space-content-gap: 15px;
+  --space-cta-gap: 10px;
+  --space-cta-py: 5px;
+  --space-panel-top-offset: 15px;
+  --space-panel-bottom-pad: 31px;
+
+  /* Borders */
+  --border-hairline: 0.5px;
+  --border-chip: 0.5px;
+
+  /* Chip internal spacing */
+  --space-chip-px: 3px;
+  --space-chip-py: 1px;
 }

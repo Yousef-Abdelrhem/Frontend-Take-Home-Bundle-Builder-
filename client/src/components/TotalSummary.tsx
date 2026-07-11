@@ -18,7 +18,7 @@ export default function TotalSummary({
         <img
           src={satisfactionBadge}
           alt="100% Wyze satisfaction guarantee"
-          className="h-[88px] w-[88px] flex-shrink-0"
+          className="h-[var(--size-badge)] w-[var(--size-badge)] flex-shrink-0"
         />
         <div className="flex flex-col items-end">
           <Badge variant="solid" className="mb-2">
@@ -30,7 +30,7 @@ export default function TotalSummary({
                 ${preDiscountTotal.toFixed(2)}
               </span>
             )}
-            <span className="text-2xl font-bold text-[#4E2FD2]">
+            <span className="text-2xl font-bold text-purple-01">
               ${total.toFixed(2)}
             </span>
           </div>
@@ -38,7 +38,7 @@ export default function TotalSummary({
       </div>
 
       {savings > 0 && (
-        <p className="mt-2 text-[12px]  text-center font-normal tracking-[0.6px] text-success">
+        <p className="mt-2 text-xs text-center font-normal tracking-price text-success">
           Congrats! You're saving ${savings.toFixed(2)} on your security bundle!
         </p>
       )}
