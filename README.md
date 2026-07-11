@@ -12,6 +12,8 @@ This is a take-home frontend prototype featuring:
 - **localStorage persistence**: Configuration is saved automatically and restored on page reload
 - **Basic CRUD API**: Optional NestJS backend serves products and persists saved systems
 
+https://github.com/user-attachments/assets/e81fafdf-7771-48d5-ac17-466bfa5549e1
+
 ## Running the app
 https://github.com/Yousef-Abdelrhem/Frontend-Take-Home-Bundle-Builder-/issues/2#issue-4863045697
 ### Option 1: Frontend + Backend (One Command) ⚡
