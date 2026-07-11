@@ -47,15 +47,20 @@ export default function StepCard({
         </button>
 
         <div className="mt-4 grid grid-cols-1 gap-[15px] sm:grid-cols-2">
-          {stepProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {stepProducts.map((product, index) => {
+            const isLastOdd = stepProducts.length % 2 !== 0 && index === stepProducts.length - 1;
+            return (
+              <div key={product.id} className={isLastOdd ? 'sm:col-span-2 sm:mx-auto sm:w-[calc(50%-7.5px)]' : undefined}>
+                <ProductCard product={product} />
+              </div>
+            );
+          })}
         </div>
 
         {!isLastStep && (
           <button
             onClick={onNext}
-            className="mt-5 w-full rounded-xl border-2 border-purple-01 bg-white px-6 py-3 font-semibold text-purple-01 hover:bg-purple-01-light"
+            className="mx-auto mt-5 flex h-[39px] w-fit items-center justify-center gap-[10px] rounded-[7px] border border-purple-01 bg-white px-6 py-[5px] font-semibold text-purple-01 hover:bg-purple-01-light"
           >
             Next: {nextStepTitle || 'Continue'}
           </button>

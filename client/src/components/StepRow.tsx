@@ -1,6 +1,7 @@
-import type { Product, Step as StepType } from '../data/catalog';
-import { useBundleStore } from '../store/useBundleStore';
-import StepLabel from './StepLabel';
+import type { Product, Step as StepType } from "../data/catalog";
+import { useBundleStore } from "../store/useBundleStore";
+import StepLabel from "./StepLabel";
+import camerIcon from "../assets/icons/camerIcon.png";
 
 interface StepRowProps {
   step: StepType;
@@ -11,28 +12,39 @@ interface StepRowProps {
 export default function StepRow({ step, products, onToggle }: StepRowProps) {
   const bundleStore = useBundleStore();
   const stepProducts = products.filter((p) => p.stepId === step.id);
-  const selectedCount = bundleStore.getSelectedProductIds(stepProducts.map((p) => p.id)).length;
+  const selectedCount = bundleStore.getSelectedProductIds(
+    stepProducts.map((p) => p.id),
+  ).length;
 
   return (
-    <button
-      onClick={onToggle}
-      className="flex w-full items-center justify-between gap-[5px] border-t-[0.5px] border-gray-300 py-5"
-    >
-      <div className="flex items-center gap-3 text-left">
-        <span className="text-2xl">{step.icon}</span>
-        <div className="flex flex-col gap-[5px]">
-          <StepLabel order={step.order} />
-          <h2 className="text-lg font-bold text-gray-900">{step.title}</h2>
-        </div>
+    <>
+      <div className="py-2 bg-white">
+        <StepLabel order={step.order} borderBottom={false} />
       </div>
-      <div className="flex items-center gap-2">
-        {selectedCount > 0 && (
-          <span className="text-sm font-semibold text-purple-01 lg:hidden">
-            {selectedCount} selected
-          </span>
-        )}
-        <span className="text-sm text-purple-01">▼</span>
+
+      <div className=" flex min-h-[67px] w-full flex-col gap-0 border-t-[0.5px] border-[#1F1F1F] bg-white pt-5 pb-5">
+        <button
+          onClick={onToggle}
+          className="flex w-full items-center justify-between text-left"
+        >
+          <div className="flex items-center gap-3">
+            {step.id === "cameras" ? (
+              <img src={camerIcon} alt="" className="h-8 w-8" />
+            ) : (
+              <span className="text-2xl">{step.icon}</span>
+            )}
+            <h2 className="text-[22px] text-gray-900">{step.title}</h2>
+          </div>
+          <div className="flex items-center gap-2">
+            {selectedCount > 0 && (
+              <span className="text-sm font-semibold text-purple-01 lg:hidden">
+                {selectedCount} selected
+              </span>
+            )}
+            <span className="text-sm text-purple-01">▼</span>
+          </div>
+        </button>
       </div>
-    </button>
+    </>
   );
 }

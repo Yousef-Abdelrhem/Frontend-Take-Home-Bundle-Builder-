@@ -29,11 +29,12 @@ export default function Builder({ steps, products }: BuilderProps) {
   };
 
   return (
-    <div className="rounded-sm   bg-lavender pt-4 ">
+    <div className="rounded-[10px]  bg-lavender pt-4 ">
       {steps.map((step, index) => {
         const nextStep = steps[index + 1];
         return (
           <Step
+          
             key={step.id}
             step={step}
             isExpanded={expandedStep === step.id}
